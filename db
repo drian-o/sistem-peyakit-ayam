@@ -1,0 +1,375 @@
+-- phpMyAdmin SQL Dump
+-- version 5.2.0
+-- https://www.phpmyadmin.net/
+--
+-- Host: 127.0.0.1
+-- Generation Time: Jul 11, 2022 at 09:37 AM
+-- Server version: 10.4.24-MariaDB
+-- PHP Version: 7.4.29
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `db_ayam`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_analisa_hasil`
+--
+
+CREATE TABLE `tbl_analisa_hasil` (
+  `kd_analisa` int(11) NOT NULL,
+  `kd_penyakit` varchar(11) NOT NULL,
+  `nama` varchar(50) NOT NULL,
+  `kd_sesi` int(11) NOT NULL,
+  `tanggal` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tbl_analisa_hasil`
+--
+
+INSERT INTO `tbl_analisa_hasil` (`kd_analisa`, `kd_penyakit`, `nama`, `kd_sesi`, `tanggal`) VALUES
+(1, 'P01', 'Drian', 46, '2022-07-04 06:54:31'),
+(2, 'P01', 'Drian', 46, '2022-07-04 06:55:14'),
+(3, 'P01', 'Drian', 46, '2022-07-04 06:55:34'),
+(4, 'P01', 'Drian', 46, '2022-07-04 06:56:00'),
+(5, 'P02', 'Drian', 1, '2022-07-04 07:10:03'),
+(6, 'P01', 'Drian', 4, '2022-07-04 07:12:25'),
+(7, 'P03', 'Drian', 4, '2022-07-04 07:22:22'),
+(8, 'P04', 'Drian', 4, '2022-07-04 07:38:27'),
+(9, 'P05', 'Drian', 5, '2022-07-04 07:49:59'),
+(10, 'P06', 'Drian', 6, '2022-07-04 08:30:44'),
+(11, 'P06', 'Drian', 7, '2022-07-04 08:39:19'),
+(12, 'P06', 'Drian', 7, '2022-07-04 08:42:32'),
+(13, 'P01', 'Drian', 7, '2022-07-04 08:48:19'),
+(14, 'P03', 'Drian', 8, '2022-07-04 08:54:30'),
+(15, 'P01', 'Drian', 8, '2022-07-04 09:07:02'),
+(16, 'P01', 'Drian', 9, '2022-07-04 09:07:42'),
+(17, 'P03', 'Drian', 10, '2022-07-04 09:08:29'),
+(18, 'P04', 'Drian', 11, '2022-07-04 09:09:13'),
+(19, 'P01', 'Drian', 12, '2022-07-04 09:09:52'),
+(20, 'P02', 'Drian', 13, '2022-07-04 09:10:51'),
+(21, 'P04', 'Drian', 14, '2022-07-04 09:11:21'),
+(22, 'P06', 'Drian', 15, '2022-07-04 09:12:50'),
+(23, 'P03', 'Drian', 16, '2022-07-04 09:13:40'),
+(24, 'P03', 'Drian', 17, '2022-07-04 09:18:15'),
+(25, 'P05', 'Drian', 18, '2022-07-04 09:20:18'),
+(26, 'P07', 'Drian', 19, '2022-07-04 09:26:46'),
+(27, 'P03', 'Drian', 20, '2022-07-04 09:27:29'),
+(28, 'P07', 'Drian', 21, '2022-07-04 09:28:03'),
+(29, 'P08', 'Drian', 22, '2022-07-04 10:12:43'),
+(30, 'P05', 'Drian', 23, '2022-07-04 10:13:41'),
+(31, 'P10', 'Drian', 24, '2022-07-04 10:14:40'),
+(32, 'P01', 'Drian', 25, '2022-07-04 10:15:34'),
+(33, 'P03', 'Drian', 26, '2022-07-04 10:24:04'),
+(34, 'P12', 'Drian', 27, '2022-07-04 10:26:27'),
+(35, 'P12', 'Drian', 28, '2022-07-04 10:33:36');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_gejala`
+--
+
+CREATE TABLE `tbl_gejala` (
+  `kd_gejala` varchar(11) NOT NULL,
+  `nama_gejala` longtext DEFAULT NULL,
+  `pertanyaan` longtext DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tbl_gejala`
+--
+
+INSERT INTO `tbl_gejala` (`kd_gejala`, `nama_gejala`, `pertanyaan`) VALUES
+('GJL01', 'muncul Luka Atau Koreng', 'Apakah ayam mengalami luka dan berbintik di area jengger ?'),
+('GJL02', 'Bobot Ayam Turun', 'Apakah ayam mengalami penurunan bobot ( Kurus ) ?'),
+('GJL03', 'Produksi telur ayam menurun', 'Apakah ayam mengalami Penurunan Produksi Telur ?'),
+('GJL04', 'Terjadinya Kematian masal', 'Apakah terjadinya kematian masal pada ayam ?'),
+('GJL05', 'Bengkak oada mata dan paruh', 'Apakah ayam mengalami Pembengkakan di area mata atau paruh?'),
+('GJL06', 'Mata berair', 'Apakah mata ayam berair terus menerus ?'),
+('GJL07', 'Terdapat lendir pada lubang hidung', 'Apakah ayam mengeluarkan lendir di area Hidung ?'),
+('GJL08', 'kepala muter muter', 'Apakah ayam mengalami kepala muter muter ?'),
+('GJL09', 'ayam susah bernafas', 'Apakah ayam mengalami kesulitan bernafas ?'),
+('GJL10', 'Bulu Kusam atau berdiri', 'Apakah Bulu ayam mengalami kerontokan / Kusam dan berdiri ?'),
+('GJL11', 'bentuk telur tidak simestris', 'Apakah bentuk telur ayam tidak simetris ?'),
+('GJL12', 'ayam mengalami lemah', 'Apakah ayam Lemas ?'),
+('GJL13', 'tidak nafsu makan', 'Apakah nafsu ayam menurun ?'),
+('GJL15', 'diare berwarna putih', 'Apakah berak ayam berwarna putih dengan pasta yang menempel di dubur ?'),
+('GJL16', 'ayam mengalami diare', 'Apakah ayam mengalami diare ?'),
+('GJL17', 'ayam pucat', 'Apakah ayam nampak terlihat pucat / pial kebiruan ?'),
+('GJL18', 'Pertumbuhan ayam menjadi lambat ', 'Apakah ayam mengalami pertumbuhan yang lambat ?'),
+('GJL19', 'binting hitam pada cangkang telur', 'Apakah cangkang telur ayam mengalami bintik bintik ?'),
+('GJL20', 'ayam mengalami kelumpuhan', 'Apakah ayam mengalami kelumpuhan mendadak ?'),
+('GJL21', 'berak darah', 'Apakah berak ayam mengeluarkan darah ?'),
+('GJL22', 'pelunturan iris pada mata ayam', 'Apakah ayam mengalami perubahan pada mata / iris ayam ?'),
+('GJL23', 'tumor alat pencernaan', 'Apakah terdapat tumor pada alat pencernaan pada ayam ?'),
+('GJL24', 'Ngorok', 'Apakah ayam mengalami ngorok saat tidur ?'),
+('GJL25', 'batuk bersin', 'Apakah ayam mengalami batuk dan bersin ?');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_kaidah`
+--
+
+CREATE TABLE `tbl_kaidah` (
+  `kd_penyakit` varchar(11) CHARACTER SET latin1 DEFAULT NULL,
+  `kd_gejala` varchar(11) CHARACTER SET latin1 DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tbl_kaidah`
+--
+
+INSERT INTO `tbl_kaidah` (`kd_penyakit`, `kd_gejala`) VALUES
+('P01', 'GJL01'),
+('P01', 'GJL02'),
+('P01', 'GJL03'),
+('P02', 'GJL04'),
+('P02', 'GJL03'),
+('P02', 'GJL17'),
+('P03', 'GJL05'),
+('P03', 'GJL06'),
+('P03', 'GJL06'),
+('P03', 'GJL07'),
+('P04', 'GJL08'),
+('P04', 'GJL09'),
+('P04', 'GJL10'),
+('P04', 'GJL17'),
+('P05', 'GJL11'),
+('P05', 'GJL12'),
+('P05', 'GJL13'),
+('P06', 'GJL15'),
+('P06', 'GJL12'),
+('P06', 'GJL13'),
+('P07', 'GJL16'),
+('P07', 'GJL10'),
+('P07', 'GJL18'),
+('P07', 'GJL02'),
+('P07', 'GJL05'),
+('P08', 'GJL10'),
+('P08', 'GJL02'),
+('P08', 'GJL13'),
+('P08', 'GJL10'),
+('P08', 'GJL02'),
+('P08', 'GJL19'),
+('P09', 'GJL09'),
+('P09', 'GJL12'),
+('P09', 'GJL16'),
+('P09', 'GJL13'),
+('P09', 'GJL02'),
+('P10', 'GJL12'),
+('P10', 'GJL13'),
+('P10', 'GJL16'),
+('P10', 'GJL21'),
+('P11', 'GJL22'),
+('P11', 'GJL23'),
+('P11', 'GJL02'),
+('P11', 'GJL03'),
+('P12', 'GJL09'),
+('P12', 'GJL05'),
+('P11', 'GJL24'),
+('P12', 'GJL24'),
+('P12', 'GJL25');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_penyakit`
+--
+
+CREATE TABLE `tbl_penyakit` (
+  `kd_penyakit` varchar(11) NOT NULL,
+  `nama_penyakit` varchar(100) NOT NULL,
+  `keterangan` longtext NOT NULL,
+  `solusi` longtext NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tbl_penyakit`
+--
+
+INSERT INTO `tbl_penyakit` (`kd_penyakit`, `nama_penyakit`, `keterangan`, `solusi`) VALUES
+('P01', 'Cacar Unggas ( Fowl Pox )', '( Penyakit Jaringan Kulit )\r\n-Terjadi Pada Semua Umur Ayam-\r\nDisebabkan oleh virus borrelota aviu\r\n', 'Melakukan 2 Tipe Vaksinasi :\r\n1. Vaksin Fowl Pox\r\n2. Pigeon Pox'),
+('P02', 'Avian Influenza ( Flu Burung )', '( Penyakit Pada Saluran Pernapasan )\r\n-Terjadi Pada Ayam Usia +2 Minggu-\r\nDisebabkan Oleh virus Orthomyxoviruses', 'Melakukan vaksinasi secara bertahap, Melakukan penyemprotan insektisida berspektrum luas'),
+('P03', 'Snot ( Infectious Coryza )', '( Penyakit pada saluran Pernapasan )\r\n-Terjadi pada semua umur ayam-\r\nDisebabkan oleh bakteri Homophilus Paragallinarum', 'Melakukan disenfektan dan antibiotik lainnya seperti\r\nspectinomycin, furoxone, neomycin, novobiocin, tetracyline'),
+('P04', 'Newcatle Disease ( Tetelo )', '( Penyakit pada saluran Pernapasan)\r\n- Terjadi pada umur ayam +3minggu - \r\nDisebabkan oleh virus asymthomatic', 'Memberikan vaksin :\r\n1. Strain lentogenic (B1-type)\r\n2. Strain Mesogenic'),
+('P05', 'Eggs Drop Syndrome', '( Penyakit Saluran Reproduksi )\r\n- Terjadi pada usia ayam 18 Minggu -\r\nDisebabkan oleh bakteri Hemagglutinating adenovirus', 'Pemberian Vaksinasi dengan EDS76 oil adjuvant inactivated'),
+('P06', 'Penyakit Berak Putih ( Pullorum Disiase )', '( Penyakit Saluran Reproduksi )\r\n- Terjadi pada semua umur ayam -\r\nDisebabkan oleh bakteri Salmonella pullorum', 'Memberikan Vaksin Furazolidone pada anak ayam'),
+('P07', 'Infeksi Jamur', '( Penyakit Saluran Pencernaan )\r\n- Terjadi pada semua umur ayam -\r\nDisebabkan oleh jamur Candida Albicans\r\n', 'Meningkatkan standar sanitasi kandang dan lingkungan peternakan'),
+('P08', 'Penyakit Cacing Internal', '( Penyakit Saluran Pencernaan )\r\n- Terjadi pada seluruh umur ayam -\r\nDisebabkan oleh cacing parasit yang bernama gaperworms', 'Menjaga lingkungan kandang agar tetap kering, '),
+('P09', 'Avian Colibacillosis', '( Penyakit Saluran Pernapasan )\r\n- Terjadi pada umur ayam +3minggu -\r\nDisebabkan oleh infeksi jamur genus aspergilus', 'Menjaga kebersihan kandang dan sanitasi secara bertahap'),
+('P10', 'Berak Darah ( Coccidiosis )', '( Penyakit pada usus )\r\n- Terjadi pada ayam berumur +4 minggu -\r\nDisebabkan oleh virus Protozoa genus eimeria', 'Mengurangi atau mengeliminasi oocyts dan penyemprotan disinfektan seperti formol saline 10%'),
+('P11', 'Marek Disease', '( Penyakit sistem saraf pusat )\r\n- Terjadi pada ayam berumur 2 - 7 minggu -\r\nDisebabkan oleh virus Herpes', 'Memberi vaksinasi turkey herpesvirus, Vaksin HVT, Vaksin Bivalent'),
+('P12', 'CRD ( Chronic Respiratory Disease )', '( Penyakit Saluran Pernapasan )\r\n- Terjadi pada semua umur ayam -\r\nDisebabkan oleh Mycoplasma Gallisepticum', 'Melakukan Vaksinasi Inactived MG');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_sesi`
+--
+
+CREATE TABLE `tbl_sesi` (
+  `kd_sesi` int(11) NOT NULL,
+  `nama` varchar(50) NOT NULL DEFAULT '0',
+  `tanggal` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tbl_sesi`
+--
+
+INSERT INTO `tbl_sesi` (`kd_sesi`, `nama`, `tanggal`) VALUES
+(1, 'Drian', '2022-07-04 07:06:16'),
+(2, 'Drian', '2022-07-04 07:12:04'),
+(3, 'Drian', '2022-07-04 07:12:05'),
+(4, 'Drian', '2022-07-04 07:12:12'),
+(5, 'Drian', '2022-07-04 07:38:37'),
+(6, 'Drian', '2022-07-04 08:30:26'),
+(7, 'Drian', '2022-07-04 08:37:41'),
+(8, 'Drian', '2022-07-04 08:54:13'),
+(9, 'Drian', '2022-07-04 09:07:06'),
+(10, 'Drian', '2022-07-04 09:07:47'),
+(11, 'Drian', '2022-07-04 09:08:32'),
+(12, 'Drian', '2022-07-04 09:09:20'),
+(13, 'Drian', '2022-07-04 09:09:55'),
+(14, 'Drian', '2022-07-04 09:10:53'),
+(15, 'Drian', '2022-07-04 09:11:24'),
+(16, 'Drian', '2022-07-04 09:12:52'),
+(17, 'Drian', '2022-07-04 09:13:42'),
+(18, 'Drian', '2022-07-04 09:18:23'),
+(19, 'Drian', '2022-07-04 09:26:14'),
+(20, 'Drian', '2022-07-04 09:27:02'),
+(21, 'Drian', '2022-07-04 09:27:32'),
+(22, 'Drian', '2022-07-04 10:09:34'),
+(23, 'Drian', '2022-07-04 10:12:46'),
+(24, 'Drian', '2022-07-04 10:13:44'),
+(25, 'Drian', '2022-07-04 10:14:42'),
+(26, 'Drian', '2022-07-04 10:16:28'),
+(27, 'Drian', '2022-07-04 10:24:15'),
+(28, 'Drian', '2022-07-04 10:32:48');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `tbl_analisa_hasil`
+--
+ALTER TABLE `tbl_analisa_hasil`
+  ADD PRIMARY KEY (`kd_analisa`);
+
+--
+-- Indexes for table `tbl_gejala`
+--
+ALTER TABLE `tbl_gejala`
+  ADD PRIMARY KEY (`kd_gejala`);
+
+--
+-- Indexes for table `tbl_penyakit`
+--
+ALTER TABLE `tbl_penyakit`
+  ADD PRIMARY KEY (`kd_penyakit`);
+
+--
+-- Indexes for table `tbl_sesi`
+--
+ALTER TABLE `tbl_sesi`
+  ADD PRIMARY KEY (`kd_sesi`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `tbl_analisa_hasil`
+--
+ALTER TABLE `tbl_analisa_hasil`
+  MODIFY `kd_analisa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+
+--
+-- AUTO_INCREMENT for table `tbl_sesi`
+--
+ALTER TABLE `tbl_sesi`
+  MODIFY `kd_sesi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+<?php
+session_start();
+include 'inc/dbconfig.php';
+$is_logged_in = isset($_SESSION['kd_sesi']);
+$session_kd_sesi = '';
+$session_name = '';
+$session_tanggal = '';
+
+if ($is_logged_in) { 
+    $session_kd_sesi = $_SESSION['kd_sesi'];
+    $session_name = $_SESSION['name'];
+    $session_tanggal = $_SESSION['tanggal_sesi'];
+}
+
+$module = isset($_GET['module']) ? $_GET['module'] : 'home';
+$content = isset($_GET['p']) ? $_GET['p'] : 'index';
+$content_file = "modules/" . $module . "/" . $content . ".php";
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Diagnosis Ayam</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Clean responsive bootstrap website template">
+    <meta name="author" content="">
+
+    <!-- fav and touch icons -->
+    <link rel="shortcut icon" href="assets/ico/famma.png">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png">
+
+    <?php include "inc/scripts.php"; ?>
+</head>
+
+<body>
+    <?php include "inc/navbar.php"; ?>
+
+    <?php include $content_file; ?>
+
+</body>
+
+</html>
+# sistem-pakar-ayam v2
+sistem pakar ayam yang sederhana
+
+R1 : IF (kesulitan bernapas AND ngorok AND lesu AND lemah AND bulu kusam AND nafsu makan menurun AND ayam berputar-putar AND Jengger & pial kebiruan) THEN Penyakit Tetelo
+
+R2 : IF (lesu AND lemah AND bulu kusam AND nafsu makan menurun AND kurus & bobot menurun) THEN Penyakit Cacing
+
+R3 : IF (lesu AND lemah AND bulu kusam AND nafsu makan menurun AND kurus & bobot menurun AND berak bercampur darah) THEN Penyakit Berak Darah
+
+R4 : IF (lesu AND lemah AND bulu kusam AND nafsu makan menurun AND mata berair) THEN Penyakit Mata
+
+R5 : IF (lesu AND lemah AND bulu kusam AND nafsu makan menurun AND kurus & bobot menurun AND berak berwarna putih AND keluar cairan dari hidung) THEN Penyakit Berak putih
+
+R6 : IF (nafsu makan menurun AND kurus & bobot menurun AND pincang AND kelumpuhan) THEN Penyakit Bengkak persendian tulang kaki
+
+R7 : IF (nafsu makan menurun AND kurus & bobot menurun AND keluar cairan dari hidung AND kelopak mata lengket AND ayam selalu gelisah AND penurunan produksi telur) THEN Penyakit pilek
